@@ -1,6 +1,6 @@
 import { IMAGES_LOAD } from '../types';
 import { setImages, setError } from '../actions/actions';
-import { takeEvery, select, call } from 'redux-saga/effects';
+import { takeEvery, select, call, put } from 'redux-saga/effects';
 import { fetchImages } from '../api/index';
 
 const getPage = state => state.images.pageNumber;
@@ -14,7 +14,7 @@ function* handleImagesLoad() {
         yield put(setImages(images));
     } catch (error) {
         // dispatch error
-        yield put(setError(error));
+        yield put(setError(error.toString()));
     }
 }
 
