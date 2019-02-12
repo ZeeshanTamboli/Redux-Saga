@@ -11,3 +11,15 @@ export const fetchImages = async page => {
     }
     return data;
 };
+
+export const fetchImageStats = async id => {
+    const response = await fetch(
+        `https://api.unsplash.com/photos/${id}/statistics?client_id=${key}`,
+    );
+    const data = await response.json();
+
+    if (response.status >= 400) {
+        throw new Error(data.error);
+    }
+    return data;
+};

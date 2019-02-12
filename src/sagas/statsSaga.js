@@ -1,8 +1,20 @@
-import { take, fork } from 'redux-saga/effects';
+import { take, fork, call, put } from 'redux-saga/effects';
 import { IMAGES_LOAD_SUCCESS } from '../types';
+import { fetchImageStats } from '../api';
+import {
+    loadImageStats,
+    setImageStats,
+    setImageStatsError,
+} from '../actions/statsActions';
 
 function* handleStatsRequest(id) {
-    console.log('fetching stats', id);
+    try {
+        yield put(loadImageStats(id));
+        const imageStats = yield call(fetchImageStats, id);
+        yield put(setImageStats(id, imageStats.downloads.total));
+    } catch (error) {
+        yield put(setImageStatsError(id));
+    }
 }
 
 function* watchStatsSaga() {
