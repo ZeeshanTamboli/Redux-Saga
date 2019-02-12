@@ -1,5 +1,5 @@
 import { IMAGES_LOAD } from '../types';
-import { setImages, setError } from '../actions/actions';
+import { setImages, setError } from '../actions/imagesActions';
 import { takeEvery, select, call, put } from 'redux-saga/effects';
 import { fetchImages } from '../api/index';
 

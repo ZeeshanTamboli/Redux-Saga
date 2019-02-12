@@ -1,3 +1,9 @@
+// Images
 export const IMAGES_LOAD = 'IMAGES_LOAD';
 export const IMAGES_LOAD_SUCCESS = 'IMAGES_LOAD_SUCCESS';
 export const IMAGES_LOAD_FAILURE = 'IMAGES_LOAD_FAILURE';
+
+// Stats
+export const STATS_LOAD = 'STATS_LOAD';
+export const STATS_LOAD_SUCCESS = 'STATS_LOAD_SUCCESS';
+export const STATS_LOAD_FAILURE = 'STATS_LOAD_FAILURE';
